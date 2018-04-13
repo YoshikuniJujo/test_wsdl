@@ -7,4 +7,4 @@ import ParseXml
 main :: IO ()
 main = do
 	fp : _ <- getArgs
-	print . parse . snd . lexTags =<< readFile fp
+	print . fst . parse . snd . lexTags =<< readFile fp
