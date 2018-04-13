@@ -15,16 +15,12 @@ xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
 
 <wsdl:portType name="Estimate">
 	<wsdl:operation name="getPrice" parameterOrder="Code Value">
-		<wsdl:input
-			name="getPriceRequest"
-			message="impl:getPriceRequest"/>
-		<wsdl:output
-			name="getPriceResponse"
-			message="impl:getPriceResponse"/>
+		<wsdl:input message="getPriceRequest"/>
+		<wsdl:output message="getPriceResponse"/>
 	</wsdl:operation>
 </wsdl:portType>
 
-<wsdl:binding name="EstimateSoapBinding" type="impl:Estimate">
+<wsdl:binding name="EstimateSoapBinding" type="Estimate">
 	<wsdlsoap:binding style="rpc"
 		transport="http://schemas.xmlsoap.org/soap/http"/>
 	<wsdl:operation name="getPrice">
@@ -46,7 +42,7 @@ namespace="http://unitec-denki.utj.co.jp/schema/2003/"/>
 </wsdl:binding>
 
 <wsdl:service name="EstimateService">
-  <wsdl:port name="Estimate" binding="impl:EstimateSoapBinding">
+  <wsdl:port name="Estimate" binding="EstimateSoapBinding">
     <wsdlsoap:address
 location="http://localhost:8080/axis/services/Estimate"/>
   </wsdl:port>
